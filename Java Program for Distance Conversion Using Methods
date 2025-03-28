@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class DistanceConversion {
+    public static double kmtom(double km) {
+        return km * 1000;
+    }
+
+    
+    public static double mtocm(double meters) {
+        return meters * 100;
+    }
+
+    
+    public static double cmtomm(double cm) {
+        return cm * 10;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        System.out.print("Enter distance in Kilometres: ");
+        double km = scanner.nextDouble();
+        System.out.println(km + " km = " + kmtom(km) + " meters");
+
+        System.out.print("Enter distance in Meters: ");
+        double meters = scanner.nextDouble();
+        System.out.println(meters + " meters = " + mtocm(meters) + " centimetres");
+
+        System.out.print("Enter distance in Centimetres: ");
+        double cm = scanner.nextDouble();
+        System.out.println(cm + " cm = " + cmtomm(cm) + " millimetres");
+
+        scanner.close();
+    }
+}
