@@ -1,0 +1,27 @@
+interface Vehicle {
+    void speed();
+}
+
+
+interface Fuel {
+    void fuelType();
+}
+
+
+class Car implements Vehicle, Fuel {
+    public void speed() {
+        System.out.println("The car has a top speed of 200 km/h.");
+    }
+
+    public void fuelType() {
+        System.out.println("The car runs on petrol.");
+    }
+}
+
+public class MultipleInterfaceExample {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.speed();
+        myCar.fuelType();
+    }
+}
