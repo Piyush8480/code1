@@ -1,0 +1,21 @@
+abstract class Payment {
+    abstract void makePayment(double amount);
+    
+    void showBalance(double balance) {
+        System.out.println("Current Balance: $" + balance);
+    }
+}
+
+class CreditCardPayment extends Payment {
+    void makePayment(double amount) {
+        System.out.println("Paid $" + amount + " using Credit Card.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Payment payment = new CreditCardPayment();
+        payment.makePayment(500);
+        payment.showBalance(1000);
+    }
+}
