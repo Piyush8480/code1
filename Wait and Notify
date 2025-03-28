@@ -1,0 +1,37 @@
+class Shared {
+    synchronized void waitMethod() throws InterruptedException {
+        wait();
+        System.out.println("Resumed");
+    }
+
+    synchronized void notifyMethod() {
+        notify();
+    }
+}
+
+class MyThread implements Runnable {
+    Shared obj;
+
+    MyThread(Shared obj) {
+        this.obj = obj;
+    }
+
+    public void run() {
+        try {
+            obj.waitMethod();
+        } catch (InterruptedException e) {
+            System.out.println("Thread interrupted");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        Shared obj = new Shared();
+        Thread t1 = new Thread(new MyThread(obj));
+        t1.start();
+
+        Thread.sleep(1000);
+        obj.notifyMethod();
+    }
+}
